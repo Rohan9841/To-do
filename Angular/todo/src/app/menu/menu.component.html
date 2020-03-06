@@ -1,0 +1,15 @@
+<header>
+    <nav class = "navbar navbar-expand-md navbar-dark bg-dark">
+
+        <div><a href = "https://github.com/Rohan9841/" class = "navbar-brand">Rohan Maharjan</a></div>
+        <ul class = "navbar-nav">
+            <a *ngIf = "this.hardcodedAuthenticationService.isUserLoggedIn();" routerLink = "/welcome/Rohan" class = "nav-link">Home</a>
+            <a *ngIf = "this.hardcodedAuthenticationService.isUserLoggedIn();"routerLink = "/todos" class = "nav-link">Todo</a>
+        </ul>
+
+        <ul class = "navbar-nav navbar-collapse justify-content-end">
+            <a *ngIf = "!this.hardcodedAuthenticationService.isUserLoggedIn();" routerLink = "/login" class = "nav-link">Login</a>
+            <a *ngIf = "this.hardcodedAuthenticationService.isUserLoggedIn();" routerLink = "/logout" class = "nav-link">Logout</a>
+        </ul>
+    </nav>
+</header>
