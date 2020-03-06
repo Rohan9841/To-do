@@ -1,19 +1,27 @@
 <h1>My Todos</h1>
 
 <div class="container">
+
+    <div *ngIf = "deleteMessage" class = "alert alert-warning">{{deleteMessage}}</div>
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Description</th>
-                <th>Completed</th>
                 <th>Deadline</th>
+                <th>Completed</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let todo of todos">
+                <td>{{todo.id}}</td>
                 <td>{{todo.description | uppercase}}</td>
-                <td>{{todo.isCompleted}}</td>
                 <td>{{todo.deadline | date | uppercase}}</td>
+                <td>{{todo.isCompleted}}</td>
+                <td><button (click) = "updateTodo(todo.id)" class = "btn btn-success">Update</button></td>
+                <td><button (click) = "deleteTodo(todo.id)" class = "btn btn-warning">Delete</button></td>
             </tr>
         </tbody>
     </table>
